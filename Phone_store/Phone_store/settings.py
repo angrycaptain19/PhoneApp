@@ -25,7 +25,7 @@ SECRET_KEY = '5$gw06)zv51#^q+!5)cn_0!(0d#8m79^ex@90m5$*ykz8irs+r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ez-phoneste.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['ez-phonestore.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
