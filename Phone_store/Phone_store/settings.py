@@ -26,7 +26,7 @@ SECRET_KEY = '5$gw06)zv51#^q+!5)cn_0!(0d#8m79^ex@90m5$*ykz8irs+r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ez-phonestore.herokuapp.com']
+ALLOWED_HOSTS = ['ez-phonestore.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware'
+    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
