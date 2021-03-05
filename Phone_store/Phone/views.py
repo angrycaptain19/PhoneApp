@@ -58,13 +58,13 @@ class AjaxableResponseMixin:
         # it might do some processing (in the case of CreateView, it will
         # call form.save() for example).
         response = super().form_valid(form)
-        if self.request.is_ajax():
-            data = {
-                'pk': self.object.pk,
-            }
-            return JsonResponse(data)
-        else:
+        if not self.request.is_ajax():
             return response
+
+        data = {
+            'pk': self.object.pk,
+        }
+        return JsonResponse(data)
 
 
 class PhoneCreate(AjaxableResponseMixin, CreateView):
@@ -111,10 +111,9 @@ class TrademarkResultView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('trademark')
-        object_list = Phone.objects.filter(
+        return Phone.objects.filter(
             Q(trademark__name__contains=query)
         ).order_by("-time_publish")
-        return object_list
 
     def get_context_data(self, **kwargs):
         context = super(TrademarkResultView, self).get_context_data(**kwargs)
